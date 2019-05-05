@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0mExecuting Native docker build --force-rm -t mkawalek/mobilki-service:1.0 .[0m
+[0m[[0m[0mdebug[0m] [0m[0mWorking directory /Users/michalkawalek/Studies/mobilki/mobilki-service/target/docker/stage[0m
+[0m[[0m[0minfo[0m] [0m[0mSending build context to Docker daemon  23.03MB[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 1/6 : FROM openjdk[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 2cbfaac94298[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 2/6 : WORKDIR /opt/docker[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> dc7f91607281[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 3/6 : ADD --chown=daemon:daemon opt /opt[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> bc4135980941[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 4/6 : USER daemon[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> b3a5d28823e9[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 5/6 : ENTRYPOINT ["bin/mobilki-service"][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> 8374a8e1e1cf[0m
+[0m[[0m[0minfo[0m] [0m[0mStep 6/6 : CMD [][0m
+[0m[[0m[0minfo[0m] [0m[0m ---> Using cache[0m
+[0m[[0m[0minfo[0m] [0m[0m ---> f7c5107fb19f[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully built f7c5107fb19f[0m
+[0m[[0m[0minfo[0m] [0m[0mSuccessfully tagged mkawalek/mobilki-service:1.0[0m
+[0m[[0m[0minfo[0m] [0m[0mBuilt image mkawalek/mobilki-service:1.0[0m

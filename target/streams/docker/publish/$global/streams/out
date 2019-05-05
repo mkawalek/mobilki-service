@@ -1,0 +1,32 @@
+[0m[[0m[0mdebug[0m] [0m[0mExecuting docker push mkawalek/mobilki-service:1.0[0m
+[0m[[0m[0minfo[0m] [0m[0mThe push refers to repository [docker.io/mkawalek/mobilki-service][0m
+[0m[[0m[0minfo[0m] [0m[0m7c9e86a6363f: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0md4d9a6267fb2: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0mbd74c2ec86f2: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0md45237efa753: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0m8f1599505f4d: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0mc1c6c0352cde: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0m0715026f2ff1: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0ma89464ad2a8f: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0m76dfa41f0a1d: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0mc240c542ed55: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0mbadfbcebf7f8: Preparing[0m
+[0m[[0m[0minfo[0m] [0m[0mc1c6c0352cde: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0m0715026f2ff1: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0ma89464ad2a8f: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0m76dfa41f0a1d: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0mc240c542ed55: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0mbadfbcebf7f8: Waiting[0m
+[0m[[0m[0minfo[0m] [0m[0m8f1599505f4d: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0md45237efa753: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0mbd74c2ec86f2: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0m0715026f2ff1: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0mc1c6c0352cde: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0md4d9a6267fb2: Pushed[0m
+[0m[[0m[0minfo[0m] [0m[0ma89464ad2a8f: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0mc240c542ed55: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0m76dfa41f0a1d: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0mbadfbcebf7f8: Mounted from mkawalek/betting-service[0m
+[0m[[0m[0minfo[0m] [0m[0m7c9e86a6363f: Pushed[0m
+[0m[[0m[0minfo[0m] [0m[0m1.0: digest: sha256:7ae2e47168099362a9e2e6af312c488d3b01ace9eb2398b5a5022946c0c8b0f0 size: 2627[0m
+[0m[[0m[0minfo[0m] [0m[0mPublished image mkawalek/mobilki-service:1.0[0m
