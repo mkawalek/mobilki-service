@@ -6,11 +6,13 @@ import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 import pl.edu.agh.api.MobilkiEndpoint
 
+import scala.concurrent.ExecutionContext
 import scala.util.{Failure, Success}
 
 object Main extends App {
 
   private implicit val system: ActorSystem = ActorSystem()
+  private implicit val ec: ExecutionContext = system.dispatcher
   private implicit val mat: ActorMaterializer = ActorMaterializer()
   private val log = Logging(system, "main-logger")
 
