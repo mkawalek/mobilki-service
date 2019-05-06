@@ -23,9 +23,7 @@ object Dependencies {
   )
 
   val additionalResolvers = Seq(
-    Resolver.DefaultMavenRepository,
-    "Synerise Libs Release" at "http://artifactory.service/sbt-release/",
-    "Synerise Libs Dev" at "http://artifactory.service/sbt-dev"
+    Resolver.DefaultMavenRepository
   )
 
   val all: Seq[ModuleID] = Seq(
