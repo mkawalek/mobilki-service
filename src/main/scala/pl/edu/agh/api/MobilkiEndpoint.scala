@@ -5,21 +5,17 @@ import akka.http.scaladsl.model.HttpEntity
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.ActorMaterializer
-import akka.stream.scaladsl.Sink
-import akka.util.ByteString
 import pl.edu.agh.infrastructure.FileEncryptor
 
-import scala.concurrent.ExecutionContext
+import scala.concurrent.{ExecutionContext, Future}
 
 class MobilkiEndpoint()(implicit mat: ActorMaterializer, dispatcher: ExecutionContext) extends SprayJsonSupport {
 
   val routing: Route =
-    (path("execute") & post & fileUpload("file") & parameters("password")) { case ((fileInfo, fileSource), password) =>
-      onSuccess(fileSource
-        .runWith(Sink.fold(ByteString.empty)(_ ++ _))
-        .map(_.utf8String)
-        .map(FileEncryptor.encrypt(_, password))
-        .map(HttpEntity(_)))(complete(_))
+    (path("execute") & post & parameter('number.as[Long])) { number =>
+      onSuccess(Future {
+        FileEncryptor.encrypt(number)
+      }.map(HttpEntity(_)))(complete(_))
     }
 
 }

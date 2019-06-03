@@ -4,4 +4,5 @@ object Versions {
   val logback = "1.2.3"
   val spray = "1.3.5"
   val akkaHttpSprayJson = "10.1.5"
+  val xuggler = "5.4"
 }

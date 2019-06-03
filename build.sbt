@@ -11,3 +11,4 @@ lazy val `mobilki-service` = (project in file("."))
   .enablePlugins(JavaServerAppPackaging, GitVersioning, SbtNativePackager, DockerPlugin)
   .settings(libraryDependencies ++= Dependencies.all)
   .settings(resolvers ++= Dependencies.additionalResolvers)
+
