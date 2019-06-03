@@ -3,9 +3,9 @@ package pl.edu.agh.infrastructure
 import java.math.BigInteger
 
 
-object FileEncryptor {
+object FactorialCalculator {
 
-  def encrypt(number: Long): String = {
+  def calculate(number: Long): String = {
     var n = new BigInteger(number.toString)
 
     var result = BigInteger.ONE

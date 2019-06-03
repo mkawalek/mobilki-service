@@ -5,7 +5,7 @@ import akka.http.scaladsl.model.HttpEntity
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.ActorMaterializer
-import pl.edu.agh.infrastructure.FileEncryptor
+import pl.edu.agh.infrastructure.FactorialCalculator
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -14,7 +14,7 @@ class MobilkiEndpoint()(implicit mat: ActorMaterializer, dispatcher: ExecutionCo
   val routing: Route =
     (path("execute") & post & parameter('number.as[Long])) { number =>
       onSuccess(Future {
-        FileEncryptor.encrypt(number)
+        FactorialCalculator.calculate(number)
       }.map(HttpEntity(_)))(complete(_))
     }
 
