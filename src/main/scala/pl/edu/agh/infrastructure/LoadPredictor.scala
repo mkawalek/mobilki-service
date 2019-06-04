@@ -9,6 +9,7 @@ import org.neuroph.core.NeuralNetwork
 import org.neuroph.core.data.{DataSet, DataSetRow}
 import org.neuroph.core.learning.LearningRule
 import org.neuroph.nnet.MultiLayerPerceptron
+import org.neuroph.nnet.learning.MomentumBackpropagation
 import org.neuroph.util.TransferFunctionType
 
 import scala.collection.JavaConversions._
@@ -20,7 +21,11 @@ object LoadPredictor {
   if (file.exists) {
     network = NeuralNetwork.createFromFile(file)
   } else {
-    network = new MultiLayerPerceptron(List[Integer](2, 16, 1), TransferFunctionType.SIGMOID)
+    network = new MultiLayerPerceptron(List[Integer](2, 8, 16, 1), TransferFunctionType.SIGMOID)
+    val learningRule = new MomentumBackpropagation()
+    learningRule.setMomentum(0.02)
+    learningRule.setLearningRate(0.000001)
+    network.asInstanceOf[MultiLayerPerceptron].setLearningRule(learningRule)
   }
 
 
@@ -56,11 +61,11 @@ object LoadPredictor {
     var currentDay = now.get(Calendar.DAY_OF_WEEK)
     var currentMinute = (hour * 60) + minute
     var result = Array[Double]()
-    for (i <- 1 to 60 * 2) {
+    for (i <- 1 to 60 * 12) {
       if (currentMinute > 1440) {
         currentMinute = 0
         currentDay += 1
-        if (currentDay > 7)
+        if (currentDay > 6)
           currentDay = 0
       }
       network.setInput((currentDay - 1) / 6.0, currentMinute / 1440.0)
