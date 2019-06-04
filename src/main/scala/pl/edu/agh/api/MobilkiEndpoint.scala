@@ -12,10 +12,12 @@ import scala.concurrent.{ExecutionContext, Future}
 class MobilkiEndpoint()(implicit mat: ActorMaterializer, dispatcher: ExecutionContext) extends SprayJsonSupport {
 
   val routing: Route =
-    (path("execute") & post & parameter('number.as[Long])) { number =>
-      onSuccess(Future {
-        FactorialCalculator.calculate(number)
-      }.map(HttpEntity(_)))(complete(_))
+    withoutRequestTimeout {
+      (path("execute") & post & parameter('number.as[Long])) { number =>
+        onSuccess(Future {
+          FactorialCalculator.calculate(number)
+        }.map(HttpEntity(_)))(complete(_))
+      }
     }
 
 }
