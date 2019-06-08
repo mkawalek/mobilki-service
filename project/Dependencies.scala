@@ -17,8 +17,8 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-http-spray-json" % Versions.akkaHttpSprayJson
   )
 
-  val videoDependencies = Seq(
-    "xuggle" % "xuggle-xuggler" % Versions.xuggler
+  val ocrDependencies = Seq(
+  "com.asprise.ocr" % "java-ocr-api" % Versions.ocr
   )
 
   val loggingDependencies = Seq(
@@ -35,7 +35,7 @@ object Dependencies {
     akkaDependencies,
     akkaHttpDependencies,
     sprayDependencies,
-    videoDependencies,
+    ocrDependencies,
     loggingDependencies
   ).flatten
 
