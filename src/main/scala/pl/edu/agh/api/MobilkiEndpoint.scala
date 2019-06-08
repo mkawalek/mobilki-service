@@ -16,7 +16,7 @@ class MobilkiEndpoint()(implicit mat: ActorMaterializer, dispatcher: ExecutionCo
 
   val routing: Route =
     withoutRequestTimeout {
-      (path("execute") & post & storeUploadedFile("file", _ => new File(s"/tmp/${Random.nextInt(Int.MaxValue)}.png"))) { case (_, file) =>
+      (path("execute") & post & storeUploadedFile("file", _ => new File(s"./tmp/${Random.nextInt(Int.MaxValue)}.png"))) { case (_, file) =>
         onSuccess(
           Future {
             OcrExecutor.execute(file)

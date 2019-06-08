@@ -23,8 +23,8 @@ object LoadPredictor {
   } else {
     network = new MultiLayerPerceptron(List[Integer](2, 8, 16, 1), TransferFunctionType.SIGMOID)
     val learningRule = new MomentumBackpropagation()
-    learningRule.setMomentum(0.02)
-    learningRule.setLearningRate(0.000001)
+    learningRule.setMomentum(0.5)
+    learningRule.setLearningRate(0.1)
     network.asInstanceOf[MultiLayerPerceptron].setLearningRule(learningRule)
   }
 
@@ -37,16 +37,16 @@ object LoadPredictor {
     val osBean = ManagementFactory.getPlatformMXBean(
       classOf[OperatingSystemMXBean])
 
-    val current = osBean.getProcessCpuTime
-
     val currentDay = now.get(Calendar.DAY_OF_WEEK)
     val currentMinute = (hour * 60) + minute
+
+    val current = osBean.getProcessCpuTime
     train(currentDay, currentMinute, (current - lastUsage) / (1000 * 1000 * 1000 * 60.0 * osBean.getAvailableProcessors))
     lastUsage = current
   }
 
   def train(dayOfWeek: Int, minuteOfDay: Int, usage: Double): Unit = {
-    println(dayOfWeek + " " + minuteOfDay + " " + usage)
+    println("training: " + dayOfWeek + " " + minuteOfDay + " " + usage)
     var data = new DataSet(2, 1)
     data.addRow(new DataSetRow(Array((dayOfWeek - 1) / 6.0, minuteOfDay / 1440.0), Array(usage)))
     network.learn(data)
