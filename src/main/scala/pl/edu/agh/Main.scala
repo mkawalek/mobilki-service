@@ -50,8 +50,11 @@ object Main extends App {
       val now = Calendar.getInstance
       val minute = now.get(Calendar.MINUTE)
 
-      val number = 400000 / ((minute % 20) / 2 + 1)
-      Http().singleRequest(HttpRequest(uri = "http://localhost:8080/factorial?number=" + number, method = HttpMethods.POST))
+      val number = 350000 / ((minute % 20) / 2 + 1)
+      Http().singleRequest(HttpRequest(uri = "http://localhost:8080/factorial?number=" + number, method = HttpMethods.POST)).onComplete {
+        case Success(res) => res.entity.discardBytes()
+        case Failure(_) => None
+      }
 
     }
   }
